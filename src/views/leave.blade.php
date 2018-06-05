@@ -1,25 +1,10 @@
-@extends('leave::index') @push('title') Leave @endpush @section('content')
-<nav class="navbar navbar-expand navbar-dark bg-secondary">
-    <a class="navbar-brand" href="#">Leave Package</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('user')}}">Home</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('signout')}}">Signout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+@extends('leave::index')
+ @push('title')
+ Leave
+ @endpush
+ @section('content')
 <div class="container">
-    <div class="row py-5">
+    <div class="row py-2">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-white">Your Leaves</span>
@@ -101,8 +86,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 mb-3">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Apply</button>
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-lg float-right" type="submit">Submit</button>
+                                <button class="btn btn-default btn-lg float-left" type="reset">Reset</button>
                             </div>
                         </div>
                     </form>

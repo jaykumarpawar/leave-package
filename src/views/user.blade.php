@@ -1,33 +1,15 @@
 @extends('leave::index') @push('title') Leave @endpush @section('content')
-<nav class="navbar navbar-expand navbar-dark bg-secondary">
-    <a class="navbar-brand" href="#">Leave Package</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('user')}}">Home</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('signout')}}">Signout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <div class="container">
     <div class="row py-2">
         <div class="col-md-12">
             <div class="card bg-secondary text-white">
                 <div class="card-header">
                     <div class="card-title">
-                        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="32x32" class="rounded-circle float-right img-thumbnail"
+
+                        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="32x32" class="rounded-circle img-thumbnail float-right"
                             src="https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png" data-holder-rendered="true"
                             style="width: 42px; height: 42px;color:white">
-                        <h3 class="text-white">Profile</h3>
+                            <h5 class="text-white pt-2">Profile</h5>
                     </div>
                 </div>
                 <div class="card-body">

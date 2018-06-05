@@ -13,6 +13,28 @@
 </head>
 
 <body class="bg-dark">
+<nav class="navbar navbar-expand navbar-dark bg-secondary">
+    <a class="navbar-brand" href="#">Leave Package</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('user')}}">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('leave')}}">Leave</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('signout')}}">Signout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
     @yield('content')
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
