@@ -1,0 +1,24 @@
+{
+    "name": "crazyboy/leave",
+    "description": "This package will taking care about leave management in your organization.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Jaykumar",
+        "email": "pawar.jay95@gmail.com"
+    }],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Crazyboy\\Leave\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Crazyboy\\Leave\\LeaveServiceProvider"
+            ]
+        }
+    }
+}
