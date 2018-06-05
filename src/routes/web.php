@@ -12,6 +12,8 @@ Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers'], function () {
 Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers', 'middleware' => ['packageauth', 'web']], function () {
 
     Route::get('leave', 'LeaveController@index')->name('leave');
+    Route::get('user', 'UserController@index')->name('user');
+    Route::post('profile', 'UserController@save')->name('profile');
     Route::post('leave', 'LeaveController@send');
     Route::get('signout', 'SigninController@signout')->name('signout');
 });

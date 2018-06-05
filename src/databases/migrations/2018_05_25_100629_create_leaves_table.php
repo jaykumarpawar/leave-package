@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateLeavesTable extends Migration
 {
@@ -17,6 +17,7 @@ class CreateLeavesTable extends Migration
             $table->increments('id');
             $table->string('applyto');
             $table->string('duration');
+            $table->string('leavetype');
             $table->string('leavecategory');
             $table->text('reason');
             $table->timestamps();
