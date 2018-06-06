@@ -10,9 +10,14 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/navbar-fixed/navbar-top-fixed.css">
-
     <title>@stack('title','Leave')</title>
     <style>
+        .navbar {
+            -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.75);
+        }
+
         .invalid-feedback {
             display: none;
             width: 100%;
@@ -23,7 +28,7 @@
 
         .was-validated .form-control:invalid {
             border-color: #dc3545;
-            border-radius:0px;
+            border-radius: 0px;
         }
 
     </style>
@@ -63,6 +68,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 </body>
 <script>
     $(function () {
