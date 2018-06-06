@@ -45,10 +45,8 @@
         </div>
 
         <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-            <a href="{{route('signin')}}" class="text-white float-right">Signin</a>
+            <label></label>
+            <a href="{{route('signin')}}" class="text-white float-right">Click to Signin</a>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
         <p class="mt-4 mb-2 text-center text-light">&copy; 2017-2018</p>

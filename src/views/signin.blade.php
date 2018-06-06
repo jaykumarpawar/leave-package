@@ -16,18 +16,6 @@
 </head>
 
 <body class="bg-dark">
-@isset ($errors)
-                <div class="bd-example">
-                    <div class="alert alert-danger" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        @foreach ($errors->all() as $error)
-                            <p>{{ $error }}</p>
-                        @endforeach
-                    </div>
-                </div>
-            @endisset
     <form novalidate class="needs-validation form-signin bg-secondary rounded pr-3 pl-3" action="{{route('signin')}}" method="post">
         @csrf
         <div class="text-center mb-4">
@@ -52,10 +40,8 @@
         </div>
 
         <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-            <a href="{{route('signup')}}" class="text-white float-right">Signup</a>
+            <label></label>
+            <a href="{{route('signup')}}" class="text-white float-right">Click to Signup</a>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <p class="mt-4 mb-2 text-center text-light">&copy; 2017-2018</p>
