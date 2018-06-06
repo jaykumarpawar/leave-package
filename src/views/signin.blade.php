@@ -16,7 +16,19 @@
 </head>
 
 <body class="bg-dark">
-    <form class="form-signin bg-secondary rounded pr-3 pl-3" action="{{route('signin')}}" method="post">
+@isset ($errors)
+                <div class="bd-example">
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                </div>
+            @endisset
+    <form novalidate class="needs-validation form-signin bg-secondary rounded pr-3 pl-3" action="{{route('signin')}}" method="post">
         @csrf
         <div class="text-center mb-4">
             <img class="mb-4 mt-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2000px-Google_%22G%22_Logo.svg.png"
@@ -26,11 +38,17 @@
         <div class="form-label-group">
             <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputEmail">Email address</label>
+            <div class="invalid-feedback">
+                  Valid email is required.
+                </div>
         </div>
 
         <div class="form-label-group">
             <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <label for="inputPassword">Password</label>
+            <div class="invalid-feedback">
+                  Valid password is required.
+                </div>
         </div>
 
         <div class="checkbox mb-3">

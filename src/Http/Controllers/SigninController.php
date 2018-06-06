@@ -32,9 +32,9 @@ class SigninController extends Controller
                 'password' => Input::get('password'),
             );
             if (Auth::attempt($userdata)) {
-                return redirect('leave');
+                return redirect()->route('user.index');
             } else {
-                return redirect()->back();
+                return redirect()->back()->with('errors', 'Your credential not match to our records');
             }
         }
     }
