@@ -14,9 +14,12 @@ class LeaveServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/config/leave.php', 'leave'
         );
+        // $this->publishes([
+        //     __DIR__ . '/config/leave.php', config_path('leave.php'),
+        // ]);
         $this->publishes([
-            __DIR__ . '/config/leave.php', config_path('leave.php'),
-        ]);
+            __DIR__ . '/resources' => public_path('leave/resources'),
+        ], 'leave');
     }
 
     public function register()

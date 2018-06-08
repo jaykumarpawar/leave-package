@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <!-- Required meta tags -->
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -27,16 +26,16 @@
             <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputEmail">Email address</label>
             <div class="invalid-feedback">
-                  Valid email is required.
-                </div>
+                Valid email is required.
+            </div>
         </div>
 
         <div class="form-label-group">
             <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <label for="inputPassword">Password</label>
             <div class="invalid-feedback">
-                  Valid password is required.
-                </div>
+                Valid password is required.
+            </div>
         </div>
 
         <div class="checkbox mb-3">

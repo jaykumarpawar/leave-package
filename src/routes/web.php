@@ -12,7 +12,7 @@ Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers'], function () {
 Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers', 'middleware' => ['packageauth', 'web']], function () {
 
     Route::resource('user', 'UserController');
-    Route::get('leave', 'LeaveController@index')->name('leave');
+    Route::get('apply', 'LeaveController@index')->name('leave');
     Route::post('leave', 'LeaveController@send');
     Route::get('signout', 'SigninController@signout')->name('signout');
 });

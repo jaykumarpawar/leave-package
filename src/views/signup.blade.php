@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +10,6 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <title>Signup</title>
-    <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.1/examples/floating-labels/floating-labels.css" rel="stylesheet">
 </head>
 
@@ -40,7 +38,8 @@
         </div>
 
         <div class="form-label-group">
-            <input name="password_confirmation" type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required>
+            <input name="password_confirmation" type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password"
+                required>
             <label for="inputConfirmPassword">Confirm Password</label>
         </div>
 
@@ -52,5 +51,4 @@
         <p class="mt-4 mb-2 text-center text-light">&copy; 2017-2018</p>
     </form>
 </body>
-
 </html>

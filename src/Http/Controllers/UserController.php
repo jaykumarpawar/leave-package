@@ -16,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('leave::user');
+        $users = User::paginate(5);
+        return view('leave::userlist')->with('users', $users);
     }
 
     /**
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('leave::user');
     }
 
     /**

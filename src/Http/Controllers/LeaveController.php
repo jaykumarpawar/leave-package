@@ -12,7 +12,8 @@ class LeaveController extends Controller
 {
     public function index()
     {
-        return view('leave::leave');
+        $leaves = Leave::where('');
+        return view('leave::applyleave');
     }
 
     public function send(Request $request)

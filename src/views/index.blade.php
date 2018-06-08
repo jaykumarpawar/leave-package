@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>@stack('title','Leave')</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,12 +11,16 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/navbar-fixed/navbar-top-fixed.css">
-    <title>@stack('title','Leave')</title>
+
+    <script type="text/javascript" src="{{asset('leave/resources/js/jquery-latest.js')}}"></script>
+
+    <link rel="stylesheet" href="{{asset('leave/resources/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('leave/resources/css/webfont.css')}}">
     <style>
         .navbar {
-            -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.75);
-            box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
         }
 
         .invalid-feedback {
@@ -43,12 +48,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.index')}}">Profile</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown03">
+                        <a class="dropdown-item " href="{{route('user.create')}}">Add</a>
+                        <a class="dropdown-item" href="{{route('user.index')}}">View</a>
+                    </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Leave</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown03">
+                        <a class="dropdown-item" href="{{route('leave')}}">Apply Leave</a>
+                        <a class="dropdown-item" href="{{route('leave')}}">View Leave</a>
+                    </div>
+                </li>
+                {{--
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('user.create')}}">Profile</a>
+                </li> --}} {{--
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('leave')}}">Leave</a>
-                </li>
+                </li> --}}
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -59,17 +79,19 @@
     </nav>
     @yield('content')
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>--}}
+        {{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> --}}
+            <script type="text/javascript" src="{{asset('leave/resources/js/jquery.tablesorter.js')}}"></script>
 </body>
 <script>
     $(function () {
@@ -105,5 +127,12 @@
     })();
 
 </script>
+<script>
+    $(document).ready(function () {
+        $("#myTable").tablesorter();
+    });
 
+</script>
+@stack('script')
 </html>
+{{-- $("table th").addClass("headerSortDown headerSortUp"); --}}
