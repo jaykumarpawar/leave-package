@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/navbar-fixed/navbar-top-fixed.css"> {{--
+    {{-- <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/navbar-fixed/navbar-top-fixed.css">  --}}
+    {{--
     <script type="text/javascript" src="{{asset('leave/resources/js/jquery-latest.js')}}"></script> --}} {{--
     <link rel="stylesheet" href="{{asset('leave/resources/css/custom.css')}}"> --}} {{--
     <link rel="stylesheet" href="{{asset('leave/resources/css/style.css')}}"> --}} {{--
     <link rel="stylesheet" href="{{asset('leave/resources/css/webfont.css')}}"> --}}
     <style>
+        body {
+            min-height: 60rem;
+            padding-top: 4.5rem;
+        }
         .navbar {
             -webkit-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
             -moz-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
@@ -39,7 +44,7 @@
 </head>
 
 <body class="bg-dark">
-    <nav class="navbar navbar-expand navbar-dark bg-secondary fixed-top shadow rounded">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Leave Package</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02"
             aria-expanded="false" aria-label="Toggle navigation">

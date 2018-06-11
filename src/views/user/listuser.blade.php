@@ -33,16 +33,16 @@
                             <tbody>
                                 @foreach ($users as $user)
                                 <tr>
-                                    <td scope="row">{{$loop->index + 1}}</td>
-                                    <td>{{$user->firstname}}</td>
-                                    <td>{{$user->middlename}}</td>
-                                    <td>{{$user->lastname}}</td>
+                                    <td class="text-capitalize" scope="row">{{$loop->index + 1}}</td>
+                                    <td class="text-capitalize">{{$user->firstname}}</td>
+                                    <td class="text-capitalize">{{$user->middlename}}</td>
+                                    <td class="text-capitalize">{{$user->lastname}}</td>
                                     <td>{{$user->dob}}</td>
-                                    <td>{{$user->gender}}</td>
+                                    <td class="text-capitalize">{{$user->gender}}</td>
                                     <td>{{$user->contact}}</td>
-                                    <td>{{$user->country}}</td>
-                                    <td>{{$user->state}}</td>
-                                    <td>{{$user->city}}</td>
+                                    <td class="text-capitalize">{{$user->country}}</td>
+                                    <td class="text-capitalize">{{$user->state}}</td>
+                                    <td class="text-capitalize">{{$user->city}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

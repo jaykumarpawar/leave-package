@@ -18,16 +18,16 @@
         <tbody>
             @foreach ($users as $user)
             <tr>
-                <td scope="row">{{$loop->index + 1}}</td>
-                <td>{{$user->firstname}}</td>
-                <td>{{$user->middlename}}</td>
-                <td>{{$user->lastname}}</td>
+                <td class="text-capitalize" scope="row">{{$loop->index + 1}}</td>
+                <td class="text-capitalize">{{$user->firstname}}</td>
+                <td class="text-capitalize">{{$user->middlename}}</td>
+                <td class="text-capitalize">{{$user->lastname}}</td>
                 <td>{{$user->dob}}</td>
-                <td>{{$user->gender}}</td>
+                <td class="text-capitalize">{{$user->gender}}</td>
                 <td>{{$user->contact}}</td>
-                <td>{{$user->country}}</td>
-                <td>{{$user->state}}</td>
-                <td>{{$user->city}}</td>
+                <td class="text-capitalize">{{$user->country}}</td>
+                <td class="text-capitalize">{{$user->state}}</td>
+                <td class="text-capitalize">{{$user->city}}</td>
             </tr>
             @endforeach
         </tbody>
@@ -42,8 +42,8 @@
 </div>
 @else
 <div class="table-responsive">
-    <table class="table table-light tablesorter table-hover table-striped table-bordered text-center" id="userTable" style="width:100%">
-    <td><b>{{$search}}</b> was not found.</td>
+    <table class="table table-dark table-hover table-striped table-bordered text-center" id="userTable" style="width:100%">
+    <th><b>{{$search}}</b> was not found.</th>
     </table>
 
         <p class="text-center text-white"></p>
