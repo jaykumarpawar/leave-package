@@ -2,6 +2,7 @@
 
 namespace Crazyboy\Leave\Http\Controllers;
 
+use Crazyboy\Leave\Mail\PasswordSendMailable;
 use Crazyboy\Leave\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -40,10 +41,10 @@ class UserController extends Controller
     {
         $user = new User();
         $user->fill($request->all());
-        $user->name = $request["firstname"];
         $user->password = "";
         $user->remember_token = str_random(10);
         $user->save();
+        Mail::to($mail)->send(new PasswordSendMailable($user));
         return redirect()->back()->withSuccess("User name and password is sent to user.");
     }
 
