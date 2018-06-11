@@ -19,21 +19,21 @@
                                 <label for="firstName">First Name</label>
                                 <input type="text" class="form-control" id="firstName" required name="firstname" placeholder="First Name">
                                 <div class="invalid-feedback">
-                                    First Name is required
+                                    Required valid.
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="middleName">Middle Name</label>
                                 <input type="text" class="form-control" id="middleName" required name="middlename" placeholder="Middle Name">
                                 <div class="invalid-feedback">
-                                    Middle Name is required
+                                    Required valid.
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="lastName">Last Name</label>
                                 <input type="text" class="form-control" id="lastName" required name="lastname" placeholder="Last Name">
                                 <div class="invalid-feedback">
-                                    Last Name is required
+                                    Required valid.
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                 <label for="dob">Date of Birth</label>
                                 <input type="date" class="form-control" id="dob" required name="dob" />
                                 <div class="invalid-feedback">
-                                    Date of Birth is required
+                                    Required valid.
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -77,10 +77,9 @@
                                     <option value="O-">O-</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Please select a valid blood group
+                                    Required valid.
                                 </div>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-md-4 mb-3">
@@ -88,7 +87,7 @@
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="validatedCustomFile" required name="image" accept="image/*">
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                    <div class="invalid-feedback">Upload valid image</div>
+                                    <div class="invalid-feedback">Required valid.</div>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -96,7 +95,7 @@
                                 <input type="text" class="form-control" id="contact" required name="contact" placeholder="Contact Number" pattern="[1-9]{1}[0-9]{9}"
                                 />
                                 <div class="invalid-feedback">
-                                    Enter valid number
+                                    Required valid.
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -109,7 +108,7 @@
                                     <option value="widowed">Widowed</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Please select valid marital status
+                                    Required valid.
                                 </div>
                             </div>
                         </div>
@@ -118,8 +117,8 @@
                                 <label for="address">Address</label>
                                 <textarea class="form-control" id="addresss" placeholder="Address" required name="address" rows="2"></textarea>
                                 <div class="invalid-feedback">
-                                Address is required
-                            </div>
+                                    Required valid.
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -127,21 +126,21 @@
                                 <label for="country">Country</label>
                                 <input class="form-control" type="text" name="country" id="country" required>
                                 <div class="invalid-feedback">
-                                    Country name is required
+                                    Required valid.
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="state">State</label>
                                 <input class="form-control" type="text" name="state" id="state" required>
                                 <div class="invalid-feedback">
-                                    State name is required
+                                    Required valid.
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="city">City</label>
                                 <input class="form-control" type="text" name="city" id="city" required>
                                 <div class="invalid-feedback">
-                                    City name is required
+                                    Required valid.
                                 </div>
                             </div>
                         </div>

@@ -16,8 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(5);
-        return view('leave::userlist')->with('users', $users);
+        $users = User::paginate(10);
+        return view('leave::user.listuser')->with('users', $users);
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('leave::user');
+        return view('leave::user.adduser');
     }
 
     /**
@@ -38,7 +38,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->fill($request->all());
+        $user->name = $request["firstname"];
+        $user->password = "";
+        $user->remember_token = str_random(10);
+        $user->save();
+        return redirect()->back()->withSuccess("User name and password is sent to user.");
     }
 
     /**
@@ -49,7 +55,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('leave::user.viewuser');
     }
 
     /**
@@ -87,5 +93,46 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getUser(Request $request)
+    {
+        if ($request->ajax()) {
+            $users = User::paginate(10);
+            $view = view('leave::user.usersearchlist', compact('users'))->render();
+            return response($view);
+        }
+    }
+
+    public function data($search)
+    {
+        return $users = User::where('id', $search)
+            ->orWhere('firstname', 'LIKE', '%' . $search . '%')
+            ->orWhere('middlename', 'LIKE', '%' . $search . '%')
+            ->orWhere('lastname', 'LIKE', '%' . $search . '%')
+            ->orWhere('gender', 'LIKE', '%' . $search . '%')
+            ->orWhere('country', 'LIKE', '%' . $search . '%')
+            ->orWhere('city', 'LIKE', '%' . $search . '%')
+            ->orWhere('state', 'LIKE', '%' . $search . '%')
+            ->paginate(10);
+    }
+    public function searchUser(Request $request)
+    {
+        if ($request->ajax()) {
+            $users = $this->data($request['search']);
+            if (!(empty($request['search']))) {
+                $search = $request['search'];
+                $view = view('leave::user.usersearchlist', compact('users', 'search'))->render();
+                return response($view);
+            }
+        }
+    }
+
+    public function searchUserPage(Request $request)
+    {
+        if ($request->ajax()) {
+            $users = $this->data($request['search']);
+            return view('leave::user.usersearchlist', compact('users'))->render();
+        }
     }
 }

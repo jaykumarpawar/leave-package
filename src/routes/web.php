@@ -15,4 +15,7 @@ Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers', 'middleware' => 
     Route::get('apply', 'LeaveController@index')->name('leave');
     Route::post('leave', 'LeaveController@send');
     Route::get('signout', 'SigninController@signout')->name('signout');
+    Route::get('searchuser', 'UserController@searchUser');
+    Route::get('getuser', 'UserController@getUser');
+    Route::get('searchuserpage', 'UserController@searchUserPage');
 });
