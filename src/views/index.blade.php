@@ -7,13 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    <link rel="stylesheet" href="{{asset('leave/resources/css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    {{-- <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/navbar-fixed/navbar-top-fixed.css">  --}}
     {{--
-    <script type="text/javascript" src="{{asset('leave/resources/js/jquery-latest.js')}}"></script> --}} {{--
-    <link rel="stylesheet" href="{{asset('leave/resources/css/custom.css')}}"> --}} {{--
+    <script type="text/javascript" src="{{asset('leave/resources/js/jquery-latest.js')}}"></script> --}}
+
+    {{-- <link rel="stylesheet" href="{{asset('leave/resources/css/custom.css')}}"> --}}
+     {{--
     <link rel="stylesheet" href="{{asset('leave/resources/css/style.css')}}"> --}} {{--
     <link rel="stylesheet" href="{{asset('leave/resources/css/webfont.css')}}"> --}}
     <style>
@@ -40,6 +40,73 @@
             border-radius: 0px;
         }
 
+        .pagination{
+            float:right;
+        }
+        .page-item:first-child .page-link {
+            margin-left: 0;
+            border-top-left-radius: .25rem;
+            border-bottom-left-radius: .25rem
+        }
+
+        .page-item:last-child .page-link {
+            border-top-right-radius: .25rem;
+            border-bottom-right-radius: .25rem
+        }
+
+        .page-item .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color: #32383e;
+            border: 1px solid #dee2e6;
+        }
+
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color: #32383e;
+            border: 1px solid #dee2e6;
+        }
+
+        .page-item.disabled .page-link {
+            color: #6c757d;
+            pointer-events: none;
+            cursor: disabled;
+            background-color: #32383e;
+            border: 1px solid #dee2e6;
+        }
+
+        .pagination-lg .page-link {
+            padding: .75rem 1.5rem;
+            font-size: 1.25rem;
+            line-height: 1.5
+        }
+
+        .pagination-lg .page-item:first-child .page-link {
+            border-top-left-radius: .3rem;
+            border-bottom-left-radius: .3rem
+        }
+
+        .pagination-lg .page-item:last-child .page-link {
+            border-top-right-radius: .3rem;
+            border-bottom-right-radius: .3rem
+        }
+
+        .pagination-sm .page-link {
+            padding: .25rem .5rem;
+            font-size: .875rem;
+            line-height: 1.5
+        }
+
+        .pagination-sm .page-item:first-child .page-link {
+            border-top-left-radius: .2rem;
+            border-bottom-left-radius: .2rem
+        }
+
+        .pagination-sm .page-item:last-child .page-link {
+            border-top-right-radius: .2rem;
+            border-bottom-right-radius: .2rem
+        }
     </style>
 </head>
 
@@ -76,16 +143,15 @@
         </div>
     </nav>
     @yield('content')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <script src="{{asset('leave/resources/js/jquery.min.js')}}" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="{{asset('leave/resources/js/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="{{asset('leave/resources/js/bootstrap.min.js')}}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-    {{-- JS FOR DATATABLES --}} {{--
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    {{-- JS FOR DATATABLES  --}}
+    {{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="{{asset('leave/resources/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('leave/resources/js/dataTables.bootstrap4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('leave/resources/js/dataTables.select.min.js')}}"></script> --}}
@@ -113,14 +179,15 @@
     })();
 
 </script>
-{{--
-<script>
+
+{{-- <script>
     $(document).ready(function () {
         $('#userTable').DataTable({
             select: true
         });
     });
 
-</script> --}} @stack('script')
+</script> --}}
+ @stack('script')
 
 </html>

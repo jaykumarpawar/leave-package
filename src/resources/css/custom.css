@@ -1,63 +1,85 @@
+body {
+    min-height: 60rem;
+    padding-top: 4.5rem;
+}
+
+.navbar {
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #ffc800f5;
+}
+
+.was-validated .form-control:invalid {
+    border-color: #dc3545;
+    border-radius: 0px;
+}
+
 .pagination {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    padding-left: 0;
-    list-style: none;
-    border-radius: 0.25rem;
+    float: right;
 }
 
 .page-item:first-child .page-link {
     margin-left: 0;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem
 }
 
 .page-item:last-child .page-link {
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem
 }
 
 .page-item.active .page-link {
     z-index: 1;
     color: #fff;
-    background-color: #51586a;
-    border-color: #1997c6;
+    background-color: #007bff;
+    border-color: #007bff
 }
 
 .page-item.disabled .page-link {
-    color: #51586a;
+    color: #6c757d;
     pointer-events: none;
     cursor: auto;
-    background-color: transparent;
-    border-color: rgba(53, 54, 55, 0.78);
+    background-color: #fff;
+    border-color: #dee2e6
 }
 
-.page-link {
-    position: relative;
-    display: block;
-    padding: 0.5rem 0.75rem;
-    margin-left: -1px;
-    line-height: 1.25;
-    color: #51586a;
-    background-color: #252830;
-    border: 1px solid #434857;
+.pagination-lg .page-link {
+    padding: .75rem 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.5
 }
 
-.page-link:hover {
-    z-index: 2;
-    color: #fff;
-    text-decoration: none;
-    background-color: #434857;
-    border-color: #434857;
+.pagination-lg .page-item:first-child .page-link {
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem
 }
 
-.page-link:focus {
-    z-index: 2;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(25, 151, 198, 0.25);
+.pagination-lg .page-item:last-child .page-link {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem
 }
 
-.page-link:not(:disabled):not(.disabled) {
-    cursor: pointer;
+.pagination-sm .page-link {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5
+}
+
+.pagination-sm .page-item:first-child .page-link {
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem
+}
+
+.pagination-sm .page-item:last-child .page-link {
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem
 }

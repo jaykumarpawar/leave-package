@@ -50,6 +50,8 @@
                                 <tr>
                                     <td colspan="10">
                                         {{$users->render()}}
+
+                                        Showing {{$users->firstItem()}} to {{$users->lastItem()}} of {{$users->total()}} entries
                                     </td>
                                 </tr>
                             </tfoot>
