@@ -9,4 +9,3 @@
 `composer dump-autoload`
 `php artisan vendor:publish --tag=leave`
 `php artisan db:seed --class=UsersTableSeeder`
-`php artisan db:seed --class="leave\Database\Seeds\UsersTableSeeder"`

@@ -20,6 +20,7 @@ class LeaveServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/resources' => public_path('leave/resources'),
             __DIR__ . '/database/migrations' => $this->app->databasePath() . '/migrations',
+            __DIR__ . '/database/seeds' => $this->app->databasePath() . '/seeds',
         ], 'leave');
     }
 

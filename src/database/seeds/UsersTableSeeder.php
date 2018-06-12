@@ -1,7 +1,5 @@
 <?php
 
-namespace Crazyboy\Leave\Database\Seed;
-
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
