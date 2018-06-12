@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('leave/resources/css/webfont.css')}}"> --}}
     <style>
         body {
-            min-height: 60rem;
+            min-height: 65rem;
             padding-top: 4.5rem;
         }
         .navbar {
@@ -177,7 +177,6 @@
             });
         }, false);
     })();
-
 </script>
 
 {{-- <script>

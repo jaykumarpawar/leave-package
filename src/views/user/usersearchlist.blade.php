@@ -7,12 +7,15 @@
                                     <th scope="col">First</th>
                                     <th scope="col">Middle</th>
                                     <th scope="col">Last</th>
-                                    <th scope="col">DOB</th>
-                                    <th scope="col">Gender</th>
+                                    {{--
+                                    <th scope="col">DOB</th> --}} {{--
+                                    <th scope="col">Gender</th> --}}
                                     <th scope="col">Contact</th>
-                                    <th scope="col">Country</th>
+                                    {{--
+                                    <th scope="col">Country</th> --}}
                                     <th scope="col">State</th>
                                     <th scope="col">City</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -22,21 +25,25 @@
                                     <td class="text-capitalize">{{$user->firstname}}</td>
                                     <td class="text-capitalize">{{$user->middlename}}</td>
                                     <td class="text-capitalize">{{$user->lastname}}</td>
-                                    <td>{{$user->dob}}</td>
-                                    <td class="text-capitalize">{{$user->gender}}</td>
+                                    {{--
+                                    <td>{{$user->dob}}</td> --}} {{--
+                                    <td class="text-capitalize">{{$user->gender}}</td> --}}
                                     <td>{{$user->contact}}</td>
-                                    <td class="text-capitalize">{{$user->country}}</td>
+                                    {{--
+                                    <td class="text-capitalize">{{$user->country}}</td> --}}
                                     <td class="text-capitalize">{{$user->state}}</td>
                                     <td class="text-capitalize">{{$user->city}}</td>
+                                    <td class="text-capitalize">
+                                        <a href="{{route('user.show',$user->id)}}" class="btn btn-primary">Edit</a>
+                                        <button data-toggle="modal" data-target="#deleteModal" class="btn btn-danger" onClick="destroy('{{ URL::to('user/' . $user->id .'')}}','Delete User');">Delete</button>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td colspan="10">
-                                        {{$users->render()}}
-
-                                        Showing {{$users->firstItem()}} to {{$users->lastItem()}} of {{$users->total()}} entries
+                                        {{$users->render()}} Showing {{$users->firstItem()}} to {{$users->lastItem()}} of {{$users->total()}} entries
                                     </td>
                                 </tr>
                             </tfoot>

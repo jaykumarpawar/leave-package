@@ -6,8 +6,8 @@ Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers'], function () {
     });
     Route::get('signin', 'SigninController@index')->name('signin');
     Route::post('signin', 'SigninController@signin');
-    Route::get('signup', 'SignupController@index')->name('signup');
-    Route::post('signup', 'SignupController@signup');
+    Route::get('signup/{id}/{token}', 'SignupController@index');
+    Route::put('signup', 'SignupController@signup')->name('signup');
 });
 Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers', 'middleware' => ['packageauth', 'web']], function () {
 

@@ -6,34 +6,39 @@ use App\Http\Controllers\Controller;
 use Crazyboy\Leave\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class SignupController extends Controller
 {
     public function index()
     {
-        return view('leave::signup');
+        $id = request()->id;
+        $token = request()->token;
+        $var = User::where('id', '=', $id)->where('remember_token', '=', $token)->count();
+        dd($var);
+        if ($var > 0) {
+            dd(request()->id);
+            return view('leave::signup');
+        } else {
+            return redirect()->route('signin');
+        }
     }
 
     public function signup(Request $request)
     {
-        $rules = array(
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+        $items = $request->validate([
             'password' => 'required|confirmed',
-        );
-        $validator = Validator::make(Input::all(), $rules);
+        ]);
 
-        if ($validator->fails()) {
-            return redirect()->back();
-        } else {
-            User::create([
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'password' => Hash::make($request['password']),
-            ]);
-            return redirect()->route('signin');
-        }
+        // if ($validator) {
+        // Session::flash('success', "User Credential do not match our records");
+        // return redirect()->back();
+        // } else {
+        $user = User::find($request->id);
+        $user->password = Hash::make($request->password);
+        $user->remember_token = '';
+        $user->save();
+        return redirect()->route('signin');
+        // }
     }
 }

@@ -15,14 +15,16 @@
 
 <body class="bg-dark">
     <form class="form-signin bg-secondary rounded pr-3 pl-3" action="{{route('signup')}}" method="post">
+        @method('put')
+        <input type="hidden" name="id" value="{{request()->id}}">
         @csrf
         <div class="text-center mb-4">
             <img class="mb-4 mt-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2000px-Google_%22G%22_Logo.svg.png"
                 alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal text-light">SIGNUP</h1>
+            <h1 class="h3 mb-3 font-weight-normal text-light">REGISTER</h1>
         </div>
 
-        <div class="form-label-group">
+        {{-- <div class="form-label-group">
             <input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
             <label for="inputName">Name</label>
         </div>
@@ -30,7 +32,7 @@
         <div class="form-label-group">
             <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputEmail">Email address</label>
-        </div>
+        </div> --}}
 
         <div class="form-label-group">
             <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
@@ -45,9 +47,9 @@
 
         <div class="checkbox mb-3">
             <label></label>
-            <a href="{{route('signin')}}" class="text-white float-right">Click to Signin</a>
+            {{-- <a href="{{route('signin')}}" class="text-white float-right">Click to Signin</a> --}}
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
         <p class="mt-4 mb-2 text-center text-light">&copy; 2017-2018</p>
     </form>
 </body>

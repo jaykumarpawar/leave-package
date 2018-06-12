@@ -40,7 +40,7 @@
 
         <div class="checkbox mb-3">
             <label></label>
-            <a href="{{route('signup')}}" class="text-white float-right">Click to Signup</a>
+            {{-- <a href="{{route('signup')}}" class="text-white float-right">Click to Signup</a> --}}
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <p class="mt-4 mb-2 text-center text-light">&copy; 2017-2018</p>

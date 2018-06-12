@@ -6,6 +6,7 @@ use Crazyboy\Leave\Mail\PasswordSendMailable;
 use Crazyboy\Leave\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
@@ -44,7 +45,7 @@ class UserController extends Controller
         $user->password = "";
         $user->remember_token = str_random(10);
         $user->save();
-        Mail::to($mail)->send(new PasswordSendMailable($user));
+        Mail::to($user->email)->send(new PasswordSendMailable($user));
         return redirect()->back()->withSuccess("User name and password is sent to user.");
     }
 
@@ -56,7 +57,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('leave::user.viewuser');
+        return View::make('leave::user.deleteuser')->with('user', $id);
     }
 
     /**
@@ -93,7 +94,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::destroy($id);
+        dd($user);
     }
 
     public function getUser(Request $request)
