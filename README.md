@@ -6,6 +6,7 @@
 #comment all lines in routes/web.php file.
 #run command
 `composer require crazyboy/leave`
-`composer dump-autoload`
 `php artisan vendor:publish --tag=leave`
+`composer dumpautoload`
+`php artisan migrate`
 `php artisan db:seed --class=UsersTableSeeder`
