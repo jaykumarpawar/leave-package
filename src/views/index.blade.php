@@ -121,16 +121,22 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
+                        @if(Auth::user()->role=='admin')
                         <a class="dropdown-item" href="{{route('user.create')}}">Add</a>
                         <a class="dropdown-item" href="{{route('user.index')}}">List</a>
-                        <a class="dropdown-item " href="{{route('user.show',Auth::id())}}">Profile</a>
+                        <a class="dropdown-item " href="{{route('user.edit',Auth::id())}}">Profile</a>
+                        @else
+                        <a class="dropdown-item " href="{{route('user.edit',Auth::id())}}">Profile</a>
+                        @endif
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Leave</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="{{route('leave')}}">Apply Leave</a>
-                        <a class="dropdown-item" href="{{route('leave')}}">View Leave</a>
+                        <a class="dropdown-item" href="{{route('applyleave')}}">Apply Leave</a>
+                        @if(Auth::user()->role=='admin')
+                        <a class="dropdown-item" href="{{route('listleave')}}">View Leaves</a>
+                        @endif
                     </div>
                 </li>
             </ul>

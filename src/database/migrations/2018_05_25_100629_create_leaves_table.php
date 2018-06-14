@@ -15,15 +15,16 @@ class CreateLeavesTable extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('applyto');
-            $table->string('duration');
-            $table->string('leavetype');
-            $table->string('leavecategory');
-            $table->text('reason');
+            $table->integer('userid')->unsigned();
+            $table->foreign('userid')->references('id')->on('users');
+            $table->date('startdate')->nullable();
+            $table->date('enddate')->nullable();
+            $table->string('applyto')->nullable();
+            $table->string('leavetype')->nullable();
+            $table->string('leavecategory')->nullable();
+            $table->string('leavesubcategory')->nullable();
+            $table->enum('leavestatus', ['0', '1', '2'])->nullable();
+            $table->text('reason')->nullable();
             $table->timestamps();
         });
     }

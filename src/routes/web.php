@@ -12,8 +12,11 @@ Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers'], function () {
 Route::group(['namespace' => 'Crazyboy\Leave\Http\Controllers', 'middleware' => ['packageauth', 'web']], function () {
 
     Route::resource('user', 'UserController');
-    Route::get('apply', 'LeaveController@index')->name('leave');
-    Route::post('leave', 'LeaveController@send');
+    Route::get('applyleave', 'LeaveController@index')->name('applyleave');
+    Route::get('viewleave/{id}', 'LeaveController@view')->name('viewleave');
+    Route::get('listleave', 'LeaveController@list')->name('listleave');
+    Route::post('sendleave', 'LeaveController@send')->name('sendleave');
+    Route::post('updateleave', 'LeaveController@update')->name('updateleave');
     Route::get('signout', 'SigninController@signout')->name('signout');
     Route::get('searchuser', 'UserController@searchUser');
     Route::get('getuser', 'UserController@getUser');

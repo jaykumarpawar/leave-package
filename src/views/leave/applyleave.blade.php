@@ -1,23 +1,51 @@
-@extends('leave::index') @push('title') Leave @endpush @section('content')
+@extends('leave::index')
+@push('title')
+    Leave
+@endpush
+@section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-white">Your Leaves</span>
-                <span class="badge badge-secondary badge-pill">3</span>
+                {{-- <span class="badge badge-secondary badge-pill"></span> --}}
             </h4>
             <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Leave</h6>
-                        <small class="text-muted">Leave Message</small>
-                    </div>
-                    <span class="text-muted">1</span>
-                </li>
+                @foreach ($leaves as $leave)
+                    <li class="list-group-item d-flex justify-cont`ent-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">{{$leave->startdate.' - '.$leave->enddate}}</h6>
+                            <small class="text-justify text-muted">{{$leave->reason}}</small>
+                        </div>
+                        {{-- <span class="text-muted"></span> --}}
+                        @php
+                            if($leave->leavestatus=='0'){
+                                $color='secondary';
+                                $status = 'Pending';}
+                            elseif($leave->leavestatus=='1'){
+                                $color='success';
+                                $status = 'Approved';}
+                            else{
+                                $color='danger';
+                                $status = 'Rejected';}
+                        @endphp
+                        <div>
+                            {{-- <h6 class="my-0">{{$leave->startdate.' - '.$leave->enddate}}</h6> --}}
+                            <span class="badge badge-{{$color}}">{{$status}}</span>
+                        </div>
+
+                    </li>
+                @endforeach
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Total Leaves</span>
-                    <strong>1</strong>
+                    <span>Available Leaves</span>
+                    <strong>{{$user->leavebalance.' days'}}</strong>
                 </li>
+                @if($user->leavebalance <= 0)
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span class="text-danger text-bold">Paid Leaves</span>
+                        <strong>{{$user->unpaidleaves.' days'}}</strong>
+                    </li>
+                @endif
             </ul>
         </div>
         <div class="col-md-8 order-md-1">
@@ -26,7 +54,7 @@
                     <h5 class="text-white">Apply Leave</h5>
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate action="{{route('leave')}}" method="post">
+                    <form class="needs-validation" novalidate action="{{route('sendleave')}}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -47,7 +75,8 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="applyTo">Apply To</label>
-                                <input type="text" class="form-control" readonly id="applyTo" value="Admin" required name="applyto">
+                                <input type="text" class="form-control" readonly id="applyTo" value="{{$reportto->firstname .' '.$reportto->lastname}}">
+                                <input type="hidden" name="applyTo" value="{{$reportto->id}}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="leavetype">Leave Type</label>
@@ -101,7 +130,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary btn-lg float-right" type="submit">Submit</button>
+                                <button class="btn btn-primary btn-lg float-right" type="submit" @if($user->leavebalance <= 0) disabled @endif>Submit</button>
                                 <button class="btn btn-default btn-lg float-left" type="reset">Reset</button>
                             </div>
                         </div>

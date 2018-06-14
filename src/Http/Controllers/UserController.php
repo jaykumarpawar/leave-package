@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
+use \Auth;
 
 class UserController extends Controller
 {
@@ -18,8 +19,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
-        return view('leave::user.listuser')->with('users', $users);
+        if (Auth::user()->role == 'admin') {
+            $users = User::paginate(10);
+            return view('leave::user.listuser')->with('users', $users);
+        } else {
+            return redirect()->route('user.edit', Auth::id());
+        }
     }
 
     /**
@@ -40,13 +45,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->fill($request->all());
-        $user->password = "";
-        $user->remember_token = str_random(10);
-        $user->save();
-        Mail::to($user->email)->send(new PasswordSendMailable($user));
-        return redirect()->back()->withSuccess("User name and password is sent to user.");
+        if (Auth::user()->role == 'admin') {
+            $user = new User();
+            $user->fill($request->all());
+            $user->password = "";
+            $user->remember_token = str_random(10);
+            $user->save();
+            Mail::to($user->email)->send(new PasswordSendMailable($user));
+            return redirect()->back();
+        } else {
+            return redirect()->route('user.edit', Auth::id());
+        }
     }
 
     /**
@@ -57,7 +66,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return View::make('leave::user.deleteuser')->with('user', $id);
+        if (Auth::user()->role == 'admin') {
+            return View::make('leave::user.deleteuser')->with('user', $id);
+        } else {
+            return redirect()->route('user.edit', Auth::id());
+        }
     }
 
     /**
@@ -68,7 +81,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->role == 'admin' or Auth::id() == $id) {
+            $user = User::find($id);
+            return view('leave::user.viewuser')->with(['user' => $user]);
+        } else {
+            return redirect()->route('user.edit', Auth::id());
+        }
     }
 
     /**
@@ -80,10 +98,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->fill($request->all());
-        $user->save();
-        return redirect()->back();
+        if (Auth::user()->role == 'admin' or Auth::id() == $id) {
+            $user = User::find($id);
+            $user->fill($request->all());
+            $user->save();
+            return redirect()->back();
+        } else {
+            return redirect()->route('user.edit', Auth::id());
+        }
     }
 
     /**
@@ -94,8 +116,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::destroy($id);
-        dd($user);
+        if (Auth::user()->role == 'admin' or Auth::id() == $id) {
+            $user = User::destroy($id);
+            return redirect()->back();
+        } else {
+            return redirect()->route('user.edit', Auth::id());
+        }
     }
 
     public function getUser(Request $request)

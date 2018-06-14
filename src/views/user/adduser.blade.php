@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form novalidate class="needs-validation" action="{{route('user.store')}}" method="post" enctype="multipart/form-data">
+                    <form novalidate class="needs-validation" action="{{route('user.store')}}" method="post" enctype="multipart/form-data" id="adduser">
                         @csrf
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -35,12 +35,12 @@
                                     Required valid.
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="userRole">Role</label>
-                                <select name="role" required class="form-control" style="width: 100%;">
+                            <div class="col-md-6 mb-3" id="rolediv">
+                                <label for="role">Role</label>
+                                <select id="role" name="role" required class="form-control" style="width: 100%;">
                                     <option value="">Choose...</option>
-                                    <option value="divorced">Admin</option>
-                                    <option value="widowed">Employee</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="employee">Employee</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Required valid.
@@ -59,4 +59,23 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection @push('script')
+<script>
+    $('#role').change(function () {
+
+        if ($(this).val() == 'employee') {
+            $('#rolediv').after(
+                            '<div class="col-md-6 mb-3" id="reporttodiv">' +
+                                '<label for="reportto">Report to</label>' +
+                                '<input type="text" class="form-control" id="reportto" required name="reportto" placeholder="Report to">' +
+                                '<div class="invalid-feedback">' +
+                                    'Required valid.' +
+                                '</div>'); //add input box
+        }
+        if ($(this).val() != 'employee') {
+            $('#reporttodiv').remove();
+        }
+    });
+
+</script>
+@endpush

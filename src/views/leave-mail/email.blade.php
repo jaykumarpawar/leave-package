@@ -1,8 +1,10 @@
 @component('mail::message')
 # Introduction
 
+{{-- {{dd($data)}} --}}
 Apply to {{$data["applyto"]}}<br>
-Duration {{$data["duration"]}}<br>
+From {{$data["startdate"]}}<br>
+To {{$data["enddate"]}}<br>
 Reason {{$data["reason"]}}
 
 @component('mail::button', ['url' => ''])
