@@ -6,12 +6,24 @@
     <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="{{asset('leave/resources/css/bootstrap.min.css')}}">
     <title>Signin</title>
     <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.1/examples/floating-labels/floating-labels.css" rel="stylesheet">
+    <link href="{{asset('leave/resources/css/floating-labels.css')}}" rel="stylesheet">
+    <style>
+        .invalid-feedback {
+            display: none;
+            width: 100%;
+            margin-top: .25rem;
+            font-size: 80%;
+            color: #ffc800f5;
+        }
+
+        .was-validated .form-control:invalid {
+            border-color: #dc3545;
+            border-radius: 0px;
+        }
+    </style>
 </head>
 
 <body class="bg-dark">
@@ -46,5 +58,26 @@
         <p class="mt-4 mb-2 text-center text-light">&copy; 2017-2018</p>
     </form>
 </body>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
 
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 </html>

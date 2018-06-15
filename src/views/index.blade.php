@@ -180,15 +180,5 @@
         }, false);
     })();
 </script>
-
-{{-- <script>
-    $(document).ready(function () {
-        $('#userTable').DataTable({
-            select: true
-        });
-    });
-
-</script> --}}
  @stack('script')
-
 </html>

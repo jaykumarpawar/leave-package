@@ -42,9 +42,9 @@
                                     }else{
                                         $subcategory = 'N.A.';
                                     }
-                                    if($leave->status == 0){
+                                    if($leave->leavestatus == '0'){
                                         $status = 'Pending';
-                                    }elseif($leave->status == 1){
+                                    }elseif($leave->leavestatus == '1'){
                                         $status = 'Approved';
                                     }else{
                                         $status = 'Rejeceted';
@@ -80,4 +80,3 @@
     </div>
 </div>
 @endsection
-@push('script')

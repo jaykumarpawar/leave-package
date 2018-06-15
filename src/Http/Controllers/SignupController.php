@@ -15,9 +15,7 @@ class SignupController extends Controller
         $id = request()->id;
         $token = request()->token;
         $var = User::where('id', '=', $id)->where('remember_token', '=', $token)->count();
-        dd($var);
         if ($var > 0) {
-            dd(request()->id);
             return view('leave::signup');
         } else {
             return redirect()->route('signin');
@@ -26,15 +24,11 @@ class SignupController extends Controller
 
     public function signup(Request $request)
     {
-        $items = $request->validate([
+        $request->validate([
             'password' => 'required|confirmed',
         ]);
-
-        // if ($validator) {
-        // Session::flash('success', "User Credential do not match our records");
-        // return redirect()->back();
-        // } else {
         $user = User::find($request->id);
+        dd($user);
         $user->password = Hash::make($request->password);
         $user->remember_token = '';
         $user->save();
